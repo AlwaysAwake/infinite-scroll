@@ -13,7 +13,7 @@ app
   .set('views', path.join(__dirname, 'views'))
   .use(logger('dev'))
   .use(bodyParser.json())
-  .use(bodyParser.urlencoded({ extended: false }))
+  .use(bodyParser.urlencoded({extended: false}))
   .use(cookieParser())
   .use(express.static(path.join(__dirname, 'public')))
   .use('/', index)

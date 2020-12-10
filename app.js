@@ -7,6 +7,11 @@ const index = require('./routes/index');
 const users = require('./routes/users');
 const app = express();
 
+const webpack = require('webpack');
+const webpackDevMiddleware = require('webpack-dev-middleware');
+const config = require('./webpack.config');
+const compiler = webpack(config);
+
 app
   .engine('html', require('ejs').renderFile)
   .set('view engine', 'ejs')
@@ -15,6 +20,11 @@ app
   .use(bodyParser.json())
   .use(bodyParser.urlencoded({extended: false}))
   .use(cookieParser())
+  .use(
+    webpackDevMiddleware(compiler, {
+      publicPath: config.output.publicPath
+    })
+  )
   .use(express.static(path.join(__dirname, 'public')))
   .use('/', index)
   .use('/users', users)

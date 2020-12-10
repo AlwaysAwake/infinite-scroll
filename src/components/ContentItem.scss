@@ -1,0 +1,9 @@
+.wrapper {
+  min-height: 120px;
+  border: 1px solid #eee;
+  padding: 8px;
+}
+
+.wrapper + .wrapper {
+  border-top: none;
+}

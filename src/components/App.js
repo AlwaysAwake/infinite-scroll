@@ -1,16 +1,18 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Header from './Header';
 import ContentItem from './ContentItem';
+import {getList} from '../service';
 import style from './App.scss';
 
-const list = [1, 2, 3, 4, 5].map(key => ({
-  id: key,
-  key,
-  uuid: String(key).repeat(5),
-  created: Date.now()
-}));
-
 const App = () => {
+  const [list, setList] = useState([]);
+
+  useEffect(() => {
+    if (list.length <= 0) {
+      getList().then(res => setList(res));
+    }
+  }, [list]);
+
   return (
     <div className={style.container}>
       <Header />

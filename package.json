@@ -21,10 +21,13 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-http": "^2.0.1",
+    "html-webpack-plugin": "^4.5.0",
     "husky": "^4.3.5",
     "lint-staged": "^10.5.3",
     "mocha": "^5.0.1",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "webpack": "^5.10.0",
+    "webpack-dev-middleware": "^4.0.2"
   },
   "husky": {
     "hooks": {

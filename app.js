@@ -25,6 +25,7 @@ app
       publicPath: config.output.publicPath
     })
   )
+  .use(require('webpack-hot-middleware')(compiler))
   .use(express.static(path.join(__dirname, 'public')))
   .use('/', index)
   .use('/users', users)
